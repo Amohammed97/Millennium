@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Ticket</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="container-fluid" id="navbarNav">
+      <ul class="navbar-nav">
+
+
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'Users' %}">Users</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'ticket' %}">ticket</a>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <div class="container" style="margin-top: 3%;">
+
+    <div class="row justify-content-md-center">
+      <div class=" col-8">
+
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputEmail4">Driver name</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="enter Driver name">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputPassword4">car number</label>
+              <input type="password" class="form-control" id="inputPassword4" placeholder="enter car number">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputAddress">Car model</label>
+              <select class="form-control" name=role required>
+                <option value="customer 1">model 1</option>
+                <option value="customer 2">model 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputAddress">Customer</label>
+              <select class="form-control" name=role required>
+                <option value="customer 1">customer 1</option>
+                <option value="customer 2">customer 2</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputAddress"></label>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                <label class="form-check-label" for="exampleRadios1">
+                  First weight
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Second weight
+                </label>
+              </div>
+
+            </div>
+
+            <div class="form-group col-md-5">
+
+              <label for="staticEmail" class="col-sm-2 col-form-label">weight</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="None" style="background-color: darkkhaki; text-align: center; border-radius: 12px;">
+              </div>
+            </div>
+            
+          </div>
+
+          <button type="submit" class="btn btn-primary">Creat ticket</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    const Http = new XMLHttpRequest();
+    const url = 'http://192.168.1.89:8000/weight';
+    setInterval(function () {
+
+      Http.open("GET", url);
+      Http.send();
+
+      Http.onreadystatechange = (e) => {
+        document.getElementById("staticEmail").value = Http.responseText + "Kg"
+        
+      }
+    }, 1000);
+
+  </script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
