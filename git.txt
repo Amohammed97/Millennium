@@ -1,0 +1,20 @@
+bitbucket : fKenz7YV4AHSTdPmyHJA
+gitHub    : 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
+
+upload new changes :
+-git status 
+-git commit -m "Initial commit" 
+-git push origin master 
+
+download new changes locally:
+-git pull origin master 
+
+
+
+
+you can use remote name insted of origin master by using :
+
+-git remote add <Name> https://To_Repo
+
+switch branches
+-git checkout <brach name>
